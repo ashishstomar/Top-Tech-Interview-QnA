@@ -36,9 +36,6 @@ let unsortedArray = [9, 2, 7, 10, 4, 2, 1];
 console.log(mergeSort(unsortedArray)); // Output: [1, 2, 2, 4, 7, 9, 10]
 
 /*
-Output:
-[1, 1, 2, 3, 6, 8, 10]
-
 Time Complexity:
 - Best Case: O(n log n)
 - Average Case: O(n log n)
