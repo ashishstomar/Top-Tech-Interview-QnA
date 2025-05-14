@@ -1,0 +1,38 @@
+:root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-input-row {
+  margin-top: 0.5rem;
+}
+
+table {
+  margin-top: 1rem;
+}
+th {
+  background-color: aqua;
+  padding: 0.2rem 1.5rem;
+}
+
+td {
+  background-color: rgb(225, 255, 255);
+  padding: 0.2rem 1.5rem;
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pagination-btn-off {
+  opacity: 50%;
+}
+
+.pagination-btn-on {
+  opacity: 100%;
+}
