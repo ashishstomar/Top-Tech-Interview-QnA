@@ -20,8 +20,10 @@ Output:
 
 function nthLargest(arr, n) {
   if (n > arr.length || n < 1) return null; // Handle invalid n
-  const sorted = [...arr].sort((a, b) => b - a); // Copy and sort descending
-  return sorted[n - 1];
+
+  const sorted = [...new Set(arr)].sort((a, b) => b - a); // Remove duplicates, sort descending
+
+  return sorted[n - 1]; // Return the nth largest (1-based index)
 }
 
 // 🔍 Example usage:
