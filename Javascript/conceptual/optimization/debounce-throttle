@@ -1,0 +1,44 @@
+// ✅ Debounce
+// Problem Statement:
+// Implement a debounce function that delays the execution of the given function (fn)
+// until after "delay" ms have passed since the last time it was invoked.
+// Usage Example: Search input (API should only trigger AFTER user stops typing).
+
+function debounce(fn, delay) {
+  let timer; // closure variable to hold the timer
+  return function (...args) {
+    clearTimeout(timer); // clear old timer if function is called again
+    timer = setTimeout(() => {
+      fn.apply(this, args); // execute after delay
+    }, delay);
+  };
+}
+
+// ✅ Throttle
+// Problem Statement:
+// Implement a throttle function that ensures the given function (fn) is executed
+// at most once every "delay" ms, no matter how many times it is triggered.
+// Usage Example: Scroll events, window resize (shouldn’t fire too often).
+
+function throttle(fn, delay) {
+  let last = 0; // closure variable to track last execution time
+  return function (...args) {
+    const now = Date.now();
+    if (now - last >= delay) {
+      fn.apply(this, args);
+      last = now;
+    }
+  };
+}
+
+// 🔍 Example usage
+const log = (msg) => console.log(msg, "at", new Date().toISOString());
+
+const debouncedLog = debounce(log, 1000);
+const throttledLog = throttle(log, 1000);
+
+// Simulating rapid calls
+for (let i = 0; i < 5; i++) {
+  debouncedLog("debounce call"); // only LAST call after 1s will fire
+  throttledLog("throttle call"); // fires immediately, then only once per 1s
+}
